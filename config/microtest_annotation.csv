@@ -1,0 +1,11 @@
+sample_name,library,organism,ip,comment,replicate,BSF_name,flowcell,lane,read_type,read_length,filename,data_source,ERCC_mix,ERCC_spikein,wigsum,ints,floats,mix
+ATAC-seq_human_PE,ATAC-seq,human,,,,,,,paired,,atac-seq_PE.bam,microtest,,,,1,2,2
+ATAC-seq_human_SE,ATAC-seq,human,,,,,,,single,,atac-seq_SE.bam,microtest,,,,0,0.2,0.2
+ChIP-seq_human_CTCF_PE,ChIP-seq,human,CTCF,,,,,,paired,,chip-seq_PE.bam,microtest,,,,10,,string
+ChIP-seq_human_CTCF_SE,ChIP-seq,human,CTCF,,,,,,single,,chip-seq_SE.bam,microtest,,,,10,0.2,0.2
+ChIP-seq_human_H3K27ac_PE,ChIP-seq,human,H3K27ac,,,,,,paired,,chip-seq_PE.bam,microtest,,,,10,,string
+ChIP-seq_human_H3K27ac_SE,ChIP-seq,human,H3K27ac,,,,,,single,,chip-seq_SE.bam,microtest,,,,10,0.2,0.2
+ChIPmentation_human_CTCF_PE,ChIPmentation,human,CTCF,,,,,,paired,,chipmentation_PE.bam,microtest,,,,1,,string
+ChIPmentation_human_CTCF_SE,ChIPmentation,human,CTCF,,,,,,single,,chipmentation_SE.bam,microtest,,,,10,0.2,0.23123string.string
+ChIPmentation_human_H3K27ac_PE,ChIPmentation,human,H3K27ac,,,,,,paired,,chipmentation_PE.bam,microtest,,,,1,,string
+ChIPmentation_human_H3K27ac_SE,ChIPmentation,human,H3K27ac,,,,,,single,,chipmentation_SE.bam,microtest,,,,10,0.2,string
