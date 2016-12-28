@@ -7,22 +7,21 @@
 # - stats summary scripts
 # - analysis scripts requiring pointers to metadata, results, and other options.
 
-paths:
-  # output_dir: ABSOLUTE PATH to the parent, shared space where project results go
-  output_dir: projects/microtest
-  # results and submission subdirs are subdirectors directories under parent output_dir
-  # results: where output sample folders will go
-  # submission: where cluster submit scripts and log files will go
-  results_subdir: results_pipeline
-  submission_subdir: pipelines/submission
-  # pipelines_dir: ABSOLUTE PATH the directory where the Looper will find pipeline
-  # scripts (and accompanying pipeline config files) for submission.
-  pipelines_dir: open_pipelines
-
 metadata:
   # Elements in this section can be absolute or relative.
   # Typically, this project config file is stored with the project metadata, so
   # relative paths are considered relative to this project config file.
+
+  # output_dir: ABSOLUTE PATH to the parent, shared space where project results go
+  output_dir: ${HOME}/microtest
+  # results and submission subdirs are subdirectors directories under parent output_dir
+  # results: where output sample folders will go
+  # submission: where cluster submit scripts and log files will go
+  results_subdir: results_pipeline
+  submission_subdir: submission
+  # pipelines_dir: ABSOLUTE PATH the directory where the Looper will find pipeline
+  # scripts (and accompanying pipeline config files) for submission.
+  pipelines_dir: ${CODEBASE}open_pipelines
   # sample_annotation: one-row-per-sample metadata
   sample_annotation: microtest_annotation.csv
   # merge_table: input for samples with more than one input file
@@ -47,14 +46,14 @@ transcriptomes:
   mouse: mm10_cdna
 
 compute:
-  # submission_template: the submission form which will be replaced with compute resource parameters
-  # Use this to change your cluster manager (SLURM, SGE, LFS, etc)
-  # Relative paths are relative to the pipelines_dir
-  submission_template: templates/slurm_template.sub
-  submission_command: sbatch
-  # To run on the localhost:
-  #submission_template: templates/localhost_template.sub
-  #submission_command: sh
+#   # submission_template: the submission form which will be replaced with compute resource parameters
+#   # Use this to change your cluster manager (SLURM, SGE, LFS, etc)
+#   # Relative paths are relative to the pipelines_dir
+#   submission_template: templates/slurm_template.sub
+#   submission_command: sbatch
+#   # To run on the localhost:
+#   #submission_template: templates/localhost_template.sub
+#   #submission_command: sh
 
 
 pipeline_config:
