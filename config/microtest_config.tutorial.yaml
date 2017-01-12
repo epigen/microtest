@@ -17,14 +17,14 @@ paths:
   # submission_subdir: pipelines/submission
   # pipelines_dir: ABSOLUTE PATH the directory where the Looper will find pipeline
   # scripts (and accompanying pipeline config files) for submission.
-  pipelines_dir: pipelines
+  pipelines_dir: ../../open_pipelines
 
 metadata:
   # Elements in this section can be absolute or relative.
   # Typically, this project config file is stored with the project metadata, so
   # relative paths are considered relative to this project config file.
   # sample_annotation: one-row-per-sample metadata
-  sample_annotation: microtest_annotation.short.csv
+  sample_annotation: microtest_annotation.tutorial.csv
   # merge_table: input for samples with more than one input file
   # merge_table: null.csv
   # compare_table: comparison pairs or groups, like normalization samples
