@@ -31,13 +31,11 @@ pip install https://github.com/epigen/pypiper/zipball/master
 
 # clone pipelines
 git clone https://github.com/epigen/open_pipelines
-# install too <- this is just temporary
-pip install https://github.com/epigen/open_pipelines/zipball/master
 
 # clone microtest
 git clone https://github.com/epigen/microtest
 
 # run
-looper --file-checks -c microtest/config/microtest_config.yaml
+looper run --file-checks microtest/config/microtest_config.tutorial.yaml
 
 echo 'End time:' `date +'%Y-%m-%d %T'`

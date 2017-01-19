@@ -20,7 +20,10 @@ pip install https://github.com/epigen/open_pipelines/zipball/master
 git clone https://github.com/epigen/microtest
 
 # run
-looper -c microtest/config/microtest_config.yaml
+looper run --file-checks microtest/config/microtest_config.yaml
+
+# or run only tutorial pipeline (no pipeline requirements)
+looper run --file-checks microtest/config/microtest_config.tutorial.yaml
 ```
 
 
