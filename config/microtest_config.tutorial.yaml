@@ -2,7 +2,7 @@
 
 metadata:
   sample_annotation: microtest_annotation.tutorial.csv # sheet listing all samples in the project
-  output_dir: projects/microtest  # ABSOLUTE PATH to the parent, shared space where project results go
+  output_dir: $HOME/microtest  # ABSOLUTE PATH to the parent, shared space where project results go
   pipelines_dir: ../../open_pipelines  # ABSOLUTE PATH the directory where looper will find the pipeline repository
 
 data_sources:
