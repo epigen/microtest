@@ -2,6 +2,13 @@
 
 Microtest is a repository of small test data from various data types, for testing pipelines.
 
+## Data descriptions
+(please include here a short description of any data files you add)
+
+* `bs_aln_k1k3.bam`: Bisulfite data aligned to the methylated/unmethylated spike-in control sequences (k1/k3).
+* `wgbs1.bam`/`wgbs2.bam`: Random samples of unaligned WGBS data.
+
+
 ## Usage
 
 ### With looper/pypiper in a virtualev
