@@ -13,7 +13,7 @@ ChIPmentation_human_H3K27ac_SE,ChIPmentation,human,H3K27ac,,,single,,chipmentati
 Drop-seq_human,Drop-seq,human,,,,paired,,dropseq_human.bam,microtest,,,,,
 Drop-seq_mouse,Drop-seq,mouse,,,,paired,,dropseq_mouse.bam,microtest,,,,,
 Quant-seq_human,Quant-seq,human,,,,single,,quant-seq_SE.bam,microtest,,,,,
-RRBS_human,RRBS,human,,,,,,rrbs1.bam,microtest,,,,,
+RRBS_human,RRBS,human,,,,single,,rrbs1.bam,microtest,,,,,
 RRBS_human_PE,RRBS,human,,,,paired,,rrbs_PE.bam,microtest,,,,,
 SMART-seq_human_SE,SMART-seq,human,,,,single,,RNA_SMART_50SE.bam,microtest,mix1,,1000000,,
 SMART-seq_human_truseq_SE,SMART-seq,human,,truseq,,single,,RNA_TRUseq_50SE.bam,microtest,,FALSE,1000000,,
