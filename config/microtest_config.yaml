@@ -22,6 +22,7 @@ metadata:
   pipeline_interfaces:
     - ${CODE}/open_pipelines/pipeline_interface.yaml
     - ${CODE}/dnameth_pipelines/pipeline_interface.yaml
+    - ${CODE}/rnapipe/pipeline_interface.yaml
   # sample_annotation: one-row-per-sample metadata
   sample_annotation: microtest_annotation.csv
   # merge_table: input for samples with more than one input file
