@@ -19,7 +19,9 @@ metadata:
   # submission: where cluster submit scripts and log files will go
   # pipelines_dir: ABSOLUTE PATH the directory where the Looper will find pipeline
   # scripts (and accompanying pipeline config files) for submission.
-  pipelines_dir: ${CODE}/open_pipelines/pipeline_interface.yaml
+  pipeline_interfaces:
+    - ${CODE}/open_pipelines/pipeline_interface.yaml
+    - ${CODE}/dnameth_pipelines/pipeline_interface.yaml
   # sample_annotation: one-row-per-sample metadata
   sample_annotation: microtest_annotation.csv
   # merge_table: input for samples with more than one input file
