@@ -20,6 +20,7 @@ metadata:
   # pipelines_dir: ABSOLUTE PATH the directory where the Looper will find pipeline
   # scripts (and accompanying pipeline config files) for submission.
   pipeline_interfaces:
+    - ${CODE}/ATACseq/pipeline_interface.yaml
     - ${CODE}/open_pipelines/pipeline_interface.yaml
     - ${CODE}/dnameth_pipelines/pipeline_interface.yaml
     - ${CODE}/rnapipe/pipeline_interface.yaml
