@@ -6,12 +6,4 @@ metadata:
   pipelines_dir: ../../open_pipelines/pipeline_interface.yaml  # ABSOLUTE PATH the directory where looper will find the pipeline repository
 
 data_sources:
-  microtest: "microtest/data/{filename}"
-
-genomes:
-  human: hg19
-  mouse: mm10
-
-transcriptomes:
-  human: hg19_cdna
-  mouse: mm10_cdna
+  microtest: "../data/{filename}"
