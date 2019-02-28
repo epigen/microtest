@@ -31,8 +31,8 @@ derived_columns: [bsf_samples, microtest]
 
 # Data sources are constructed paths to static (input) files
 data_sources:
-  bsf_samples: "{RAWDATA}{flowcell}/{flowcell}_{lane}_samples/{flowcell}_{lane}#{BSF_name}.bam"
-  microtest: "${CODEBASE}/microtest/data/{filename}"
+  bsf_samples: "${RAWDATA}{flowcell}/{flowcell}_{lane}_samples/{flowcell}_{lane}#{BSF_name}.bam"
+  microtest: "${CODE}/microtest/data/{filename}"
 
 
 # Implied columns are variables to be implied from another sample attribute
