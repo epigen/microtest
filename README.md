@@ -21,31 +21,30 @@ virtualenv microtestenv --no-site-packages; cd microtestenv; . ./bin/activate
 # install the stack
 pip install https://github.com/epigen/looper/zipball/master
 pip install https://github.com/epigen/pypiper/zipball/master
-pip install https://github.com/epigen/open_pipelines/zipball/master
 
-# clone microtest
+# clone open_pipelines and microtest
+git clone https://github.com/epigen/microtest
 git clone https://github.com/epigen/microtest
 
 # run
-looper run --file-checks microtest/config/microtest_config.yaml
+export CODE=`pwd`
+# run only tutorial pipeline (no additional dependecies)
+looper run --file-checks microtest/config/microtest_config.tutorial.yaml
 
-# or run only tutorial pipeline (no pipeline requirements)
+# or run all (would require additional software dependecies)
 looper run --file-checks microtest/config/microtest_config.tutorial.yaml
 ```
 
 
-### Single pipeline
-
-How to use it to test:
+### Single pipeline usage
 
 ```bash
-python pipelines/pipelines/atacseq_pipeline.py \
--i microtest/bams/atac-seq_PE.bam \
--g hg19 \
---project-root=projects/microtest
-```
+AMPLICON=`sed 's/,/\t/g' microtest/config/microtest_annotation.tutorial.csv | tail -n 1 | cut -f 14`
+GUIDE=`sed 's/,/\t/g' microtest/config/microtest_annotation.tutorial.csv | tail -n 1 | cut -f 15`
 
-You could use the chr22.bed file to restrict your analysis to chr22 if you want, maybe with `samtools view -b -L chr22.bed input.bam > output.bam`
+python open_pipelines/pipelines/amplicon_simple.py \
+-S microtest_amplicon -i microtest/data/amplicon.fastq.gz -g $GUIDE -a $AMPLICON -O microtes_amplicon
+```
 
 ## Test data production
 
