@@ -10,12 +10,4 @@ metadata:
     - ${CODE}/rnapipe/pipeline_interface.yaml
 
 data_sources:
-  microtest: "microtest/data/{filename}"
-
-genomes:
-  human: hg19
-  mouse: mm10
-
-transcriptomes:
-  human: hg19_cdna
-  mouse: mm10_cdna
+  microtest: "../data/{filename}"
