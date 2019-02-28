@@ -23,7 +23,7 @@ pip install https://github.com/epigen/looper/zipball/master
 pip install https://github.com/epigen/pypiper/zipball/master
 
 # clone open_pipelines and microtest
-git clone https://github.com/epigen/microtest
+git clone https://github.com/epigen/open_pipelines
 git clone https://github.com/epigen/microtest
 
 # run
