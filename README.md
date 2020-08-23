@@ -1,6 +1,3 @@
-> :warning: **The repository is undergoing updating**: Not everything is compatible with the latest PEP stack versions!
-
-
 # Microtest test data
 
 Microtest is a repository of small test data from various data types, for testing pipelines.
@@ -31,8 +28,7 @@ Microtest is a repository of small test data from various data types, for testin
 virtualenv microtestenv; cd microtestenv; . ./bin/activate
 
 # install the stack
-pip install looper==1.2.0
-pip install piper==0.12.1
+pip install "peppy>=0.30.2,<1.0.0" "looper>=1.2.0,<2.0.0" "piper>=0.12.1,<1.0.0"
 
 # clone open_pipelines and microtest
 git clone https://github.com/epigen/open_pipelines
