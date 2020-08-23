@@ -1,76 +1,35 @@
-
+pep_version: 2.0.0
 project_name: microtest
 project_description: A collection of very small NGS testing data
-username: user
-email: user@cemm.at
-
-
-# The project's important variables respective to this environment
-metadata:
-  # absolute path to the parent, shared space where project results go
-  output_dir: ${HOME}/microtest
-  # results and submission subdirs are subdirectors directories under parent output_dir
-  # results: where output sample folders will go
-  # submission: where cluster submit scripts and log files will go
-  # pipelines_dir: ABSOLUTE PATH the directory where the Looper will find pipeline
-  # scripts (and accompanying pipeline config files) for submission.
-  pipeline_interfaces:
-    - ${CODE}/ATACseq/pipeline_interface.yaml
-    - ${CODE}/open_pipelines/pipeline_interface.yaml
-    - ${CODE}/dnameth_pipelines/pipeline_interface.yaml
-    - ${CODE}/rnapipe/pipeline_interface.yaml
   # sample_annotation: one-row-per-sample metadata
-  sample_annotation: microtest_annotation.csv
-  # sample_subannotation: additional annotations per sample
-  # comparison_table: specification of comparisons between samples and sample groups
+sample_table: microtest_annotation.csv
+sample_modifiers:
+  derive:
+    attributes: [data_source]
+    sources:
+      microtest: "${CODE}/microtest/data/{filename}"
+      bsf_samples: "${RAWDATA}{flowcell}/{flowcell}_{lane}_samples/{flowcell}_{lane}#{BSF_name}.bam"
+  imply:
+    - if:
+        organism: "human"
+      then:
+        organism: "hg19"
+        transcriptome: "hg19_cdna"
+        macs_genome_size: "hs"
+    - if:
+        organism: "mouse"
+      then:
+        organism: "mm10"
+        transcriptome: "mm10_cdna"
+        macs_genome_size: "mm"
+    - if:
+        protocol: "Amplicon"
+      then:
+        pipeline_interfaces: "${CODE}/open_pipelines/amplicon_simple.interface.yaml"
+    - if:
+        protocol: "ATAC-seq"
+      then:
+        pipeline_interfaces: "${CODE}/open_pipelines/atacseq.interface.yaml"
 
-
-# Derived columns indicates variables which are to be processed as `data_sources`
-derived_columns: [bsf_samples, microtest]
-
-
-# Data sources are constructed paths to static (input) files
-data_sources:
-  bsf_samples: "${RAWDATA}{flowcell}/{flowcell}_{lane}_samples/{flowcell}_{lane}#{BSF_name}.bam"
-  microtest: "${CODE}/microtest/data/{filename}"
-
-
-# Implied columns are variables to be implied from another sample attribute
-implied_columns:
-  organism:
-    human:
-      genome: "hg19"
-      transcriptome: "hg19_cdna"
-      macs_genome_size: "hs"
-    mouse:
-      genome: "mm10"
-      transcriptome: "mm10_cdna"
-      macs_genome_size: "mm"
-
-
-# Subprojects are sections of the config which can be used to process only a certain part of the samples/project
-# subprojects:
-#   albatross:
-#     metadata:
-#       sample_annotation: albatross_data.csv
-#   frog:
-#     metadata:
-#       sample_annotation: frog_data.csv
-
-
-# Alternative pipeline configuration files to be used in this particular run, overiding potentially existing ones
-# pipeline_config:
-#   chipseq: chipseq_pipeline.yaml
-
-
-# Alternative pipeline arguments to be used in this particular run, overiding potentially others
-# pipeline_args:
-#   rrbs.py:  # pipeline identifier: must match the name of the pipeline script
-#   # here, include all project-specific args for this pipeline
-#   "--flavor": simple
-#   "--flag": null
-
-trackhubs:
-  trackhub_dir: projects/microtest/trackhubs
-  # url: if you include this, the make_trackhubs will produce a link to your track hub in the project folder.
-  url: http://www.example.com/
+looper:
+  output_dir: ${HOME}/microtest

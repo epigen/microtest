@@ -12,7 +12,7 @@ echo 'Compute node:' `hostname`
 echo 'Start time:' `date +'%Y-%m-%d %T'`
 
 # Create (isolated) virtual environment
-virtualenv microtestenv --no-site-packages
+virtualenv microtestenv
 
 cd microtestenv
 
@@ -26,8 +26,7 @@ export PYTHONPATH=
 . ./bin/activate
 
 # install the stack
-pip install https://github.com/epigen/looper/zipball/master
-pip install https://github.com/epigen/pypiper/zipball/master
+pip install "peppy>=0.30.2,<1.0.0" "looper>=1.2.0,<2.0.0" "piper>=0.12.1,<1.0.0"
 
 # clone pipelines
 git clone https://github.com/epigen/open_pipelines
@@ -36,6 +35,7 @@ git clone https://github.com/epigen/open_pipelines
 git clone https://github.com/epigen/microtest
 
 # run
-looper run --file-checks microtest/config/microtest_config.tutorial.yaml
+looper run microtest/config/microtest_config.yaml --sel-attr protocol --sel-incl Amplicon
+# looper run microtest/config/microtest_config.yaml --sel-attr protocol --sel-incl A{mplicon,TAC-seq}
 
 echo 'End time:' `date +'%Y-%m-%d %T'`

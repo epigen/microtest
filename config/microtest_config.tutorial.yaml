@@ -1,13 +1,15 @@
 # This project config file describes your project. See looper docs for details.
 
-metadata:
-  sample_annotation: microtest_annotation.tutorial.csv # sheet listing all samples in the project
-  output_dir: ${HOME}/microtest  # ABSOLUTE PATH to the parent, shared space where project results go
-  pipeline_interfaces:
-    - ${CODE}/ATACseq/pipeline_interface.yaml
-    - ${CODE}/open_pipelines/pipeline_interface.yaml  # ABSOLUTE PATH the directory where looper will find the pipeline repository
-    - ${CODE}/dnameth_pipelines/pipeline_interface.yaml
-    - ${CODE}/rnapipe/pipeline_interface.yaml
+pep_version: 2.0.0
+sample_table: microtest_annotation.tutorial.csv # sheet listing all samples in the project
+sample_modifiers:
+  derive:
+    attributes: [data_source]
+    sources:
+      microtest: "microtest/data/{filename}"
+  append:
+    pipeline_interfaces:
+      - "${CODE}/open_pipelines/amplicon_simple.interface.yaml"
 
-data_sources:
-  microtest: "../data/{filename}"
+looper:
+  output_dir: "$HOME/microtest"
