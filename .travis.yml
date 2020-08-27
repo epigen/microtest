@@ -1,0 +1,20 @@
+language: python
+os: linux
+dist: focal
+
+python:
+  - "3.8"
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+before_install:
+  - pip install "peppy>=0.30.2,<1.0.0" "looper>=1.2.0,<2.0.0" "piper>=0.12.1,<1.0.0"
+
+install:
+  - git clone https://github.com/epigen/open_pipelines
+  - git clone https://github.com/epigen/microtest
+
+script:
+  - CODE=`pwd` looper run microtest/config/microtest_config.yaml --sel-attr protocol --sel-incl Amplicon
