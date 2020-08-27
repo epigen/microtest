@@ -51,8 +51,13 @@ looper run microtest/config/microtest_config.yaml --sel-attr protocol --sel-incl
 AMPLICON=`sed 's/,/\t/g' microtest/config/microtest_annotation.tutorial.csv | tail -n 1 | cut -f 14`
 GUIDE=`sed 's/,/\t/g' microtest/config/microtest_annotation.tutorial.csv | tail -n 1 | cut -f 15`
 
-python open_pipelines/pipelines/amplicon_simple.py \
--S microtest_amplicon -i microtest/data/amplicon.fastq.gz -g $GUIDE -a $AMPLICON -O microtest_amplicon
+python \
+	open_pipelines/pipelines/amplicon_simple.py \
+	-S microtest_amplicon \
+	-i microtest/data/amplicon.fastq.gz \
+	-g $GUIDE \
+	-a $AMPLICON \
+	-O microtest_amplicon
 ```
 
 ## Test data production
