@@ -13,13 +13,13 @@ sample_modifiers:
     - if:
         organism: "human"
       then:
-        organism: "hg19"
+        genome: "hg19"
         transcriptome: "hg19_cdna"
         macs_genome_size: "hs"
     - if:
         organism: "mouse"
       then:
-        organism: "mm10"
+        genome: "mm10"
         transcriptome: "mm10_cdna"
         macs_genome_size: "mm"
     - if:
