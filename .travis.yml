@@ -10,11 +10,12 @@ cache:
     - $HOME/.cache/pip
 
 before_install:
-  - pip install "peppy>=0.30.2,<1.0.0" "looper>=1.2.0,<2.0.0" "piper>=0.12.1,<1.0.0"
+  - pip install "peppy>=0.30.2,<1.0.0" "looper>=1.2.0,<2.0.0" "piper>=0.12.1,<1.0.0" eido
+  - pip freeze
 
 install:
   - git clone https://github.com/epigen/open_pipelines
-  - git clone https://github.com/epigen/microtest
 
 script:
+  - CODE=`pwd` eido validate microtest/config/microtest_config.yaml -s http://schema.databio.org/pep/2.0.0.yaml
   - CODE=`pwd` looper run microtest/config/microtest_config.yaml --sel-attr protocol --sel-incl Amplicon
